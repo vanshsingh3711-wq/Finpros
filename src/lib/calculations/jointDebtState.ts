@@ -70,7 +70,7 @@ function parseNumber(value: string): number | null {
  */
 export function parseJointDebtState(draft: JointDebtDraftState): JointDebtParseResult {
   const errors: JointDebtValidationErrors = {};
-  const debtsErrors: Record<string, any> = {};
+  const debtsErrors: NonNullable<JointDebtValidationErrors['debts']> = {};
   
   const parsedIncomeA = parseNumber(draft.incomeA);
   const parsedIncomeB = parseNumber(draft.incomeB);
@@ -120,7 +120,7 @@ export function parseJointDebtState(draft: JointDebtDraftState): JointDebtParseR
   const parsedDebts: DebtInput[] = [];
 
   for (const debt of draft.debts || []) {
-    const debtErrors: any = {};
+    const debtErrors: NonNullable<JointDebtValidationErrors['debts']>[string] = {};
     let debtHasErrors = false;
 
     if (!debt.name || debt.name.trim() === '') {

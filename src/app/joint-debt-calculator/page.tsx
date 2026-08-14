@@ -48,7 +48,7 @@ const FAQS = [
 const OFFERS = [
   {
     title: 'Placeholder: Debt Consolidation',
-    description: 'When real affiliate partners are configured, users will be directed to loans that simplify payments and reduce total interest costs.',
+    description: 'When real affiliate partners are configured, users will be directed to loans.',
     label: 'Explore Consolidation Options (Coming Soon)'
   },
   {

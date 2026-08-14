@@ -353,11 +353,11 @@ describe('Joint Debt Payoff Calculator', () => {
       const targetCapacity = 200;
       const result = processOneMonth(debts, 'A', targetCapacity);
       
-      const debtA = result.activeDebts.find((d: any) => d.id === 'A')!;
+      const debtA = result.activeDebts.find(d => d.id === 'A')!;
       expect(debtA.paymentApplied).toBe(50);
       expect(debtA.endBalance).toBe(0);
       
-      const debtB = result.activeDebts.find((d: any) => d.id === 'B')!;
+      const debtB = result.activeDebts.find(d => d.id === 'B')!;
       expect(debtB.paymentApplied).toBe(100);
       expect(debtB.endBalance).toBe(4900);
       
@@ -381,10 +381,10 @@ describe('Joint Debt Payoff Calculator', () => {
       const targetCapacity = 200;
       const result = processOneMonth(debts, 'Target', targetCapacity);
       
-      const targetDebt = result.activeDebts.find((d: any) => d.id === 'Target')!;
+      const targetDebt = result.activeDebts.find(d => d.id === 'Target')!;
       expect(targetDebt.paymentApplied).toBe(300);
       
-      const nonTarget = result.activeDebts.find((d: any) => d.id === 'NonTarget')!;
+      const nonTarget = result.activeDebts.find(d => d.id === 'NonTarget')!;
       expect(nonTarget.paymentApplied).toBe(50);
       
       expect(result.unusedMinimumCapacity).toBe(50);

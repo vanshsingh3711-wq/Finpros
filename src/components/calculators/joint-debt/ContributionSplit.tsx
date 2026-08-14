@@ -17,7 +17,7 @@ export function ContributionSplit({ result }: ContributionSplitProps) {
       <CardHeader>
         <CardTitle as="h2">Fair Contribution Split</CardTitle>
         <CardDescription>
-          The split is based on each partner's share of combined income.
+          The split is based on each partner&apos;s share of combined income.
         </CardDescription>
       </CardHeader>
       
