@@ -200,13 +200,6 @@ The application does not intentionally persist financial inputs to:
 
 The project avoids making absolute privacy claims and aims to describe its data handling accurately.
 
-## 💰 Monetization
-
-FinPros includes shared infrastructure for future affiliate monetization.
-Affiliate content is intentionally secondary to the core calculator experience.
-
-*Current offers are placeholders and should not be presented as real endorsements until actual partnerships and destinations are configured.*
-
 ## 🚀 Development
 
 Install dependencies:
@@ -287,4 +280,4 @@ Each calculator should have its own isolated calculation engine and UI while reu
 
 ## 📄 License
 
-Add the project's chosen license before making the repository public.
+MIT License 
