@@ -4,7 +4,7 @@ import { Card, CardContent } from '../ui/Card';
 export interface AffiliateOffer {
   title: string;
   description: string;
-  href: string;
+  href?: string;
   label: string;
   /** Set to true to open in a new tab securely */
   external?: boolean;
@@ -57,14 +57,20 @@ export function AffiliateCTA({
                   {offer.description}
                 </p>
                 <div className="mt-auto">
-                  <a
-                    href={offer.href}
-                    target={target}
-                    rel={rel}
-                    className="inline-flex w-full sm:w-auto items-center justify-center font-medium transition-colors rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 bg-slate-900 text-white hover:bg-slate-800 focus:ring-slate-900 h-10 px-6 text-sm"
-                  >
-                    {offer.label}
-                  </a>
+                  {offer.href ? (
+                    <a
+                      href={offer.href}
+                      target={target}
+                      rel={rel}
+                      className="inline-flex w-full sm:w-auto items-center justify-center font-medium transition-colors rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 bg-slate-900 text-white hover:bg-slate-800 focus:ring-slate-900 h-10 px-6 text-sm"
+                    >
+                      {offer.label}
+                    </a>
+                  ) : (
+                    <div className="text-sm font-medium text-slate-500 italic">
+                      {offer.label}
+                    </div>
+                  )}
                 </div>
               </CardContent>
             </Card>

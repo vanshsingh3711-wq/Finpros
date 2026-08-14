@@ -47,16 +47,14 @@ const FAQS = [
 
 const OFFERS = [
   {
-    title: 'Consider Debt Consolidation',
-    description: 'Combining multiple high-interest debts into a single, lower-interest loan can simplify payments and reduce total interest costs.',
-    href: '#',
-    label: 'Explore Consolidation Options'
+    title: 'Placeholder: Debt Consolidation',
+    description: 'When real affiliate partners are configured, users will be directed to loans that simplify payments and reduce total interest costs.',
+    label: 'Explore Consolidation Options (Coming Soon)'
   },
   {
-    title: 'High-Yield Savings for Emergencies',
-    description: 'Protect your debt payoff journey from unexpected expenses by building an emergency fund in a high-yield savings account.',
-    href: '#',
-    label: 'View Savings Accounts'
+    title: 'Placeholder: High-Yield Savings',
+    description: 'When real affiliate partners are configured, this will direct users to savings accounts to help build an emergency fund.',
+    label: 'View Savings Accounts (Coming Soon)'
   }
 ];
 
@@ -88,7 +86,11 @@ export default function JointDebtCalculatorPage() {
         </section>
 
         <section aria-label="Recommendations" className="pt-12 border-t border-slate-200 space-y-4">
-          <AffiliateCTA offers={OFFERS} />
+          <AffiliateCTA 
+            title="Placeholder Recommendations"
+            description="These are general recommendations. Real affiliate integrations are pending."
+            offers={OFFERS} 
+          />
           <AffiliateDisclosure />
         </section>
 
