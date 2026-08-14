@@ -137,14 +137,14 @@ export function JointDebtCalculator() {
         {/* Enforcing the Teal brand color strictly on the primary CTA */}
         <Button 
           onClick={actions.calculate} 
-          className="flex-1 sm:flex-[2] h-14 text-lg font-bold tracking-wide rounded-xl bg-teal-700 hover:bg-teal-800 text-white shadow-md hover:shadow-lg transition-all focus-visible:ring-2 focus-visible:ring-teal-700 focus-visible:ring-offset-2"
+          className="w-full sm:w-auto sm:flex-[2] h-14 text-lg font-bold tracking-wide rounded-xl bg-teal-700 hover:bg-teal-800 text-white shadow-md hover:shadow-lg transition-all focus-visible:ring-2 focus-visible:ring-teal-700 focus-visible:ring-offset-2"
         >
           Calculate Payoff Plan
         </Button>
         <Button 
           onClick={actions.reset} 
           variant="secondary" 
-          className="flex-1 h-14 text-base font-semibold rounded-xl bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-all focus-visible:ring-2 focus-visible:ring-slate-900"
+          className="w-full sm:w-auto sm:flex-1 h-14 text-base font-semibold rounded-xl bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-all focus-visible:ring-2 focus-visible:ring-slate-900"
         >
           Reset Calculator
         </Button>
