@@ -23,10 +23,10 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
     ].filter(Boolean).join(' ') || undefined;
 
     return (
-      <div className={`w-full ${className}`}>
+      <div className={`w-full ${className}`.trim()}>
         <label 
           htmlFor={id} 
-          className="block text-sm font-medium text-slate-700 mb-1.5"
+          className="block text-sm font-bold text-slate-900 mb-2.5 tracking-tight"
         >
           {label}
         </label>
@@ -40,26 +40,27 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
           aria-invalid={isInvalid}
           aria-describedby={ariaDescribedBy}
           className={`
-            block w-full rounded-md border h-10 px-3 text-slate-900 shadow-sm transition-colors
-            focus:outline-none focus:ring-2 focus:ring-offset-1 sm:text-sm
-            disabled:bg-slate-50 disabled:text-slate-500 disabled:cursor-not-allowed
+            block w-full rounded-lg border h-11 px-4 text-slate-900 shadow-sm transition-all font-medium
+            focus:outline-none focus:ring-2 focus:ring-teal-700 focus:border-teal-700 sm:text-sm bg-white
+            placeholder:text-slate-400 placeholder:font-normal
+            disabled:bg-slate-50 disabled:text-slate-400 disabled:border-slate-200 disabled:cursor-not-allowed disabled:shadow-none
             ${
               isInvalid
-                ? 'border-red-300 focus:border-red-500 focus:ring-red-500 text-red-900 placeholder-red-300'
-                : 'border-slate-300 focus:border-slate-500 focus:ring-slate-500 placeholder-slate-400'
+                ? 'border-red-700 focus:border-red-700 focus:ring-red-700 text-red-900 bg-red-50/50'
+                : 'border-slate-200 hover:border-slate-300'
             }
           `.replace(/\s+/g, ' ').trim()}
           {...props}
         />
         
         {hint && !hasErrorString && (
-          <p id={hintId} className="mt-1.5 text-sm text-slate-500">
+          <p id={hintId} className="mt-2 text-[13px] text-slate-500 leading-relaxed">
             {hint}
           </p>
         )}
         
         {hasErrorString && (
-          <p id={errorId} className="mt-1.5 text-sm text-red-600 font-medium" role="alert">
+          <p id={errorId} className="mt-2 text-[13px] text-red-700 font-medium" role="alert">
             {error as string}
           </p>
         )}

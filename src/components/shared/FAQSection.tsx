@@ -42,24 +42,26 @@ export function FAQSection({
         dangerouslySetInnerHTML={{ __html: safeJsonLd }}
       />
       
-      <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-8 tracking-tight">
-        {title}
-      </h2>
+      <div className="flex items-center gap-4 mb-8">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          {title}
+        </h2>
+      </div>
       
       <div className="space-y-4">
         {items.map((item, index) => (
           <details
             key={index}
-            className="group rounded-xl border border-slate-200 bg-white shadow-sm open:bg-slate-50 transition-colors"
+            className="group rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-slate-300 transition-all duration-200 open:border-slate-300 open:shadow-md"
           >
-            <summary className="flex cursor-pointer items-center justify-between p-5 md:p-6 text-base font-semibold text-slate-900 hover:text-slate-600 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 rounded-xl">
-              <span className="pr-4">{item.question}</span>
-              <span className="flex-shrink-0 text-slate-400 group-open:rotate-180 transition-transform duration-200">
+            <summary className="flex cursor-pointer items-start justify-between p-6 sm:p-8 text-base font-bold text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-700 focus-visible:ring-offset-2 rounded-2xl transition-colors">
+              <span className="pr-6 leading-snug">{item.question}</span>
+              <span className="flex-shrink-0 text-slate-400 group-hover:text-slate-600 group-open:text-teal-700 group-open:rotate-180 transition-all duration-300 mt-0.5">
                 <svg
                   className="h-5 w-5"
                   fill="none"
                   viewBox="0 0 24 24"
-                  strokeWidth="2"
+                  strokeWidth="2.5"
                   stroke="currentColor"
                   aria-hidden="true"
                 >
@@ -67,8 +69,11 @@ export function FAQSection({
                 </svg>
               </span>
             </summary>
-            <div className="px-5 md:px-6 pb-5 md:pb-6 text-slate-600 leading-relaxed text-base">
-              {item.answer}
+            
+            <div className="px-6 sm:px-8 pb-6 sm:pb-8 pt-1 text-[15px] text-slate-600 leading-relaxed">
+              <div className="border-t border-slate-100 pt-5">
+                {item.answer}
+              </div>
             </div>
           </details>
         ))}

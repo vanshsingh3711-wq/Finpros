@@ -31,13 +31,21 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      // Added scroll-smooth so any anchor links or automated scrolling (like error focusing) glides smoothly
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col bg-slate-50 text-slate-900">
+      {/* 
+        Applied global selection colors (Teal) so text highlighting 
+        is always on-brand, and enforced the base slate-900 text color 
+      */}
+      <body className="min-h-full flex flex-col bg-slate-50 text-slate-900 selection:bg-teal-100 selection:text-teal-900 font-sans">
         <Header />
-        <div className="flex-grow">
+        
+        {/* Added flex flex-col to ensure main content always structures properly between header and footer */}
+        <div className="flex-grow flex flex-col">
           {children}
         </div>
+        
         <Footer />
       </body>
     </html>

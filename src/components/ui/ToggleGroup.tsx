@@ -41,7 +41,7 @@ export const ToggleGroup = React.forwardRef<HTMLDivElement, ToggleGroupProps>(
         {label && (
           <div 
             id={labelId} 
-            className="block text-sm font-medium text-slate-700 mb-1.5"
+            className="block text-sm font-bold text-slate-900 mb-2.5 tracking-tight"
           >
             {label}
           </div>
@@ -49,7 +49,7 @@ export const ToggleGroup = React.forwardRef<HTMLDivElement, ToggleGroupProps>(
         
         <div 
           ref={ref}
-          className="flex flex-wrap gap-2"
+          className="flex flex-wrap gap-2.5"
           role="radiogroup"
           aria-labelledby={label ? labelId : undefined}
           aria-describedby={ariaDescribedBy}
@@ -64,24 +64,24 @@ export const ToggleGroup = React.forwardRef<HTMLDivElement, ToggleGroupProps>(
               <label
                 key={option.value}
                 className={`
-                  relative flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md
-                  border transition-colors cursor-pointer select-none
+                  relative flex items-center justify-center px-5 py-2.5 text-sm font-semibold rounded-lg
+                  border transition-all cursor-pointer select-none
                   ${
                     isSelected
-                      ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
-                      : 'bg-white text-slate-700 border-slate-300 hover:bg-slate-50 shadow-sm'
+                      ? 'bg-slate-900 text-white border-slate-900 shadow-md'
+                      : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300 hover:text-slate-900 hover:bg-slate-50 shadow-sm'
                   }
                   ${
                     isDisabled 
-                      ? 'opacity-50 !cursor-not-allowed hover:bg-white hover:text-slate-700' 
+                      ? 'opacity-50 !cursor-not-allowed hover:bg-white hover:text-slate-600 hover:border-slate-200 shadow-none' 
                       : ''
                   }
                   ${
                     isInvalid && !isSelected
-                      ? 'border-red-300 text-red-900'
+                      ? 'border-red-700 text-red-700 bg-red-50/50'
                       : ''
                   }
-                  has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-slate-900 has-[:focus-visible]:ring-offset-2
+                  has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-teal-700 has-[:focus-visible]:ring-offset-2
                 `.replace(/\s+/g, ' ').trim()}
               >
                 <input
@@ -104,13 +104,13 @@ export const ToggleGroup = React.forwardRef<HTMLDivElement, ToggleGroupProps>(
         </div>
 
         {hint && !hasErrorString && (
-          <p id={hintId} className="mt-1.5 text-sm text-slate-500">
+          <p id={hintId} className="mt-2 text-[13px] text-slate-500 leading-relaxed">
             {hint}
           </p>
         )}
         
         {hasErrorString && (
-          <p id={errorId} className="mt-1.5 text-sm text-red-600 font-medium" role="alert">
+          <p id={errorId} className="mt-2 text-[13px] text-red-700 font-medium" role="alert">
             {error as string}
           </p>
         )}

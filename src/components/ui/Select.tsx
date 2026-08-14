@@ -31,10 +31,10 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     ].filter(Boolean).join(' ') || undefined;
 
     return (
-      <div className={`w-full ${className}`}>
+      <div className={`w-full ${className}`.trim()}>
         <label 
           htmlFor={id} 
-          className="block text-sm font-medium text-slate-700 mb-1.5"
+          className="block text-sm font-bold text-slate-900 mb-2.5 tracking-tight"
         >
           {label}
         </label>
@@ -47,21 +47,22 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           aria-invalid={isInvalid}
           aria-describedby={ariaDescribedBy}
           className={`
-            block w-full rounded-md border h-10 px-3 text-slate-900 shadow-sm transition-colors
-            focus:outline-none focus:ring-2 focus:ring-offset-1 sm:text-sm appearance-none bg-white
-            disabled:bg-slate-50 disabled:text-slate-500 disabled:cursor-not-allowed
+            block w-full rounded-lg border h-11 px-4 text-slate-900 shadow-sm transition-all
+            focus:outline-none focus:ring-2 focus:ring-teal-700 focus:border-teal-700 sm:text-sm appearance-none bg-white font-medium
+            disabled:bg-slate-50 disabled:text-slate-400 disabled:border-slate-200 disabled:cursor-not-allowed
             ${
               isInvalid
-                ? 'border-red-300 focus:border-red-500 focus:ring-red-500 text-red-900'
-                : 'border-slate-300 focus:border-slate-500 focus:ring-slate-500'
+                ? 'border-red-700 focus:border-red-700 focus:ring-red-700 text-red-900 bg-red-50/50'
+                : 'border-slate-200 hover:border-slate-300'
             }
           `.replace(/\s+/g, ' ').trim()}
           style={{
-            backgroundImage: `url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E")`,
-            backgroundPosition: 'right 0.5rem center',
+            // Updated to use the specific slate-500 hex color (%2364748B) for the chevron
+            backgroundImage: `url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%2364748B' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E")`,
+            backgroundPosition: 'right 1rem center',
             backgroundRepeat: 'no-repeat',
-            backgroundSize: '1.5em 1.5em',
-            paddingRight: '2.5rem'
+            backgroundSize: '1.2em 1.2em',
+            paddingRight: '3rem'
           }}
           {...props}
         >
@@ -82,13 +83,13 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         </select>
         
         {hint && !hasErrorString && (
-          <p id={hintId} className="mt-1.5 text-sm text-slate-500">
+          <p id={hintId} className="mt-2 text-[13px] text-slate-500 leading-relaxed">
             {hint}
           </p>
         )}
         
         {hasErrorString && (
-          <p id={errorId} className="mt-1.5 text-sm text-red-600 font-medium" role="alert">
+          <p id={errorId} className="mt-2 text-[13px] text-red-700 font-medium" role="alert">
             {error as string}
           </p>
         )}

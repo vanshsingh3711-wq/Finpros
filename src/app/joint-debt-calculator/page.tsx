@@ -60,43 +60,54 @@ const OFFERS = [
 
 export default function JointDebtCalculatorPage() {
   return (
-    <main className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-slate-50 pt-12 pb-24 px-4 sm:px-6 lg:px-8 selection:bg-teal-100 selection:text-teal-900">
       <ToolSchema tool={toolData} />
       
-      <div className="max-w-4xl mx-auto space-y-12">
-        <header className="text-center space-y-6">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Joint Debt Payoff Calculator for Couples – Split Debt Fairly
-          </h1>
-          <div className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed space-y-4 text-left bg-white p-6 md:p-8 rounded-xl border border-slate-200 shadow-sm">
-            <p>
-              Navigating debt together can be challenging. This tool helps couples create a clear, unified plan to become debt-free. By entering your household incomes and shared debts, the calculator determines a fair, proportional split so each partner contributes according to their financial means.
-            </p>
-            <p>
-              You can explore two popular payoff strategies: the <strong>Snowball method</strong> (paying off the smallest balance first for quick wins) or the <strong>Avalanche method</strong> (targeting the highest interest rate first to save money). 
-            </p>
-            <p className="text-sm text-slate-500 italic pt-2 border-t border-slate-100">
-              Note: This tool combines the debts you enter to generate an estimated payoff timeline. Results are estimates based solely on the inputs provided and assume fixed minimum payments and interest rates. This tool is for educational purposes and does not constitute personalized financial or legal advice.
-            </p>
+      <div className="max-w-4xl mx-auto space-y-16">
+        
+        {/* Editorial Header Section */}
+        <header className="text-center space-y-8 mt-4">
+          
+          {/* Trust/Category Badge */}
+          <div className="flex justify-center">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-600 text-[11px] font-bold tracking-widest uppercase shadow-sm">
+              <svg className="w-3.5 h-3.5 text-teal-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+              Free Calculator
+            </span>
           </div>
+
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight max-w-3xl mx-auto leading-[1.15]">
+            Joint Debt Payoff Calculator for Couples
+          </h1>
+          
+          <p className="text-slate-600 max-w-2xl mx-auto text-[15px] sm:text-base leading-relaxed">
+            Create a clear, unified plan to become debt-free. Enter your incomes and shared debts to calculate a fair split and find your fastest payoff timeline.
+          </p>
         </header>
 
-        <section aria-label="Calculator tool">
+        {/* Core Application Layer */}
+        <section aria-label="Calculator tool" className="scroll-mt-8">
           <JointDebtCalculator />
         </section>
 
-        <section aria-label="Recommendations" className="pt-12 border-t border-slate-200 space-y-4">
-          <AffiliateCTA 
-            title="Placeholder Recommendations"
-            description="These are general recommendations. Real affiliate integrations are pending."
-            offers={OFFERS} 
-          />
-          <AffiliateDisclosure />
-        </section>
+        {/* Resources & Monetization Layer */}
+        <div className="space-y-16 pt-12 border-t border-slate-200">
+          <section aria-label="Recommendations" className="space-y-6">
+            <AffiliateCTA 
+              title="Placeholder Recommendations"
+              description="These are general recommendations. Real affiliate integrations are pending."
+              offers={OFFERS} 
+            />
+            <AffiliateDisclosure />
+          </section>
 
-        <section aria-label="Frequently Asked Questions" className="pt-8">
-          <FAQSection items={FAQS} />
-        </section>
+          <section aria-label="Frequently Asked Questions">
+            <FAQSection items={FAQS} />
+          </section>
+        </div>
+
       </div>
     </main>
   );

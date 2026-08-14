@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* FinPros Color System: Page Background (Warm Off-White) */
+  --background: #F8FAFC;
+  /* FinPros Color System: Primary Text (Deep Navy) */
+  --foreground: #0F172A;
 }
 
 @theme inline {
@@ -12,15 +14,19 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Utilize the Geist sans font injected by Next.js in layout.tsx */
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  
+  /* Prevent horizontal scrolling on mobile devices */
+  overflow-x: hidden;
+}
+
+/* Base focus styles for links not covered by standard UI components */
+a:focus-visible {
+  outline: 2px solid #0F766E; /* Teal 700 */
+  outline-offset: 2px;
+  border-radius: 4px;
 }

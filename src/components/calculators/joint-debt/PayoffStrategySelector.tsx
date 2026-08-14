@@ -14,8 +14,8 @@ const STRATEGY_OPTIONS: ToggleGroupOption[] = [
 ];
 
 const STRATEGY_DESCRIPTIONS: Record<PayoffStrategy, string> = {
-  snowball: 'Pay off the smallest balance first.',
-  avalanche: 'Pay off the highest APR first.',
+  snowball: 'Focuses extra payments on the smallest balance first for quick psychological wins.',
+  avalanche: 'Targets the highest interest rate first to mathematically save you the most money.',
 };
 
 export function PayoffStrategySelector({
@@ -26,7 +26,9 @@ export function PayoffStrategySelector({
   return (
     <div className="w-full">
       <ToggleGroup
-        label="Payoff strategy"
+        // Omitted the visual `label` prop to prevent duplication with the parent's header,
+        // but included aria-label to ensure screen readers retain full context.
+        aria-label="Target Method"
         options={STRATEGY_OPTIONS}
         value={value}
         onChange={(val) => onChange(val as PayoffStrategy)}
